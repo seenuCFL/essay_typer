@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Nodepad</title>
+    <style>
+        div.div1{
+            display: inline-block;
+            color: whitesmoke;
+            opacity: 1;
+            position: relative;
+            height: 200px;
+            width: 500px;
+            left: 480px;
+            top: 30px;
+            border : 2px outset whitesmoke;
+            border-radius: 6px;
+            background-color : rgba(32, 32, 32, 0.3);
+            text-align: center;
+            font-size: 18px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        input.line {
+            position: relative;
+            border: none;
+            border-radius: 6px;
+            padding: 10px;
+            color: #333;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        .button1 {
+            background-color: rgba(32, 32, 32, 0.3);
+            border-radius: 6px;
+            border : 2px solid whitesmoke;
+            color: whitesmoke;
+            padding: 7px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 2px 10px;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        .button1:hover{
+            font-size: 20px;
+            color: white;
+            margin: 0px 0px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        h6{
+            font-style: italic;
+        }
+        h1{
+            color: whitesmoke;
+            text-align: center;
+            font-size: 70px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+    </style>
+</head>
+<body style="background-color : rgba(0,0,0)">
+    <h1>Magical Notepad</h1>
+    <div class = "div1">
+        <form action="{% url 'magical_notepad:type' %}" method = "POST">
+            {% csrf_token %}
+            <h3>Input a Keyword to show your skills in front of your friends</h3>
+            <label>Keyword : </label>
+            <input type="text" class = "line" name = "keyword" id="Keyword" placeholder = "type here" required>
+            <input type="submit" class = "button1" value="Let's Go">
+            <h6>(Enter something like 'Mahatma Gandhi' or 'Diwali'.......)</h6>
+        </form>
+    </div> 
+</body>
+</html>
