@@ -10,7 +10,7 @@ from django.urls import reverse
 # Create your views here.
 class Home(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'magical_notepad/home.html' 
+    template_name = 'magical_notepad/index.html' 
 
     def get(self, request):
         return Response(data = None)
@@ -22,12 +22,12 @@ class Data(APIView):
         try:
             keyword = request.POST['keyword']
         except(KeyError):
-            return render(request, 'magical_notepad/home.html', {'Describe word clearly'})
+            return render(request, 'magical_notepad/index.html', {'Describe word clearly'})
         else:
             l = keyword.split(' ')
             keyword = '_'.join(l)
             return keyword
-        return HttpResponseRedirect(reverse('magical_notepad:home'))
+        return HttpResponseRedirect(reverse('magical_notepad:index'))
 
     def crawl(self, request):
         keyword = self.getKeyword(request)
